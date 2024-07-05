@@ -1,0 +1,25 @@
+# Compiled output
+*.sln.DotSettings.user
+*.vs/
+*.vscode/
+*.swp
+*.swo
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.terraform.lock.hcl
+
+# Ansible
+*.retry
+*.pyc
+__pycache__/
+
+# SSH Keys
+*.pem
+*.key
+
+# Misc
+.DS_Store
+Thumbs.db

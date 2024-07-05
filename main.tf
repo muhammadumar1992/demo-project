@@ -127,3 +127,24 @@ resource "azurerm_virtual_machine" "VM01" {
     Environment = var.Environment
   }
 }
+
+# Create a blob storage account
+resource "azurerm_storage_account" "demo1992" {
+  name                     = "demo1992"
+  resource_group_name      = var.resource_group
+  location                 = var.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+
+  depends_on = [
+          azurerm_resource_group.demo-rg
+      
+  ]
+}
+
+# Create a blob container
+resource "azurerm_storage_container" "containertfstate" {
+  name                  = "containertfstate"
+  storage_account_name  = azurerm_storage_account.demo1992.name
+  container_access_type = "private"
+}
